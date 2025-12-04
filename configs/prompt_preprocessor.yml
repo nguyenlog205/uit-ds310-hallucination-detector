@@ -7,7 +7,7 @@ PromptPreprocessor:
   # 512 là quá đủ cho việc sửa lỗi câu/đoạn văn ngắn. 
   # Đừng để thấp quá kẻo bị cắt cụt câu.
   MAX_TOKENS: 512
-  
+  MAX_INPUT_LENGTH: 1024
   # Nhiệt độ (Độ sáng tạo)
   # Với task sửa lỗi chính tả (cần chính xác tuyệt đối), nên để cực thấp.
   # 0.1 giúp model ổn định nhưng không bị cứng quá mức.
