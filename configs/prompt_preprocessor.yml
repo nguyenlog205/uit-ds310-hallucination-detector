@@ -1,0 +1,23 @@
+PromptPreprocessor:
+  # Tên model trên Hugging Face
+  # Tôi để dòng Qwen2.5-3B vì đây là bản thực tế gần nhất với "4B" bạn mô tả
+  MODEL_NAME: "unsloth/Qwen2.5-3B-Instruct-bnb-4bit"
+  
+  # Số token tối đa model được phép sinh ra (Output)
+  # 512 là quá đủ cho việc sửa lỗi câu/đoạn văn ngắn. 
+  # Đừng để thấp quá kẻo bị cắt cụt câu.
+  MAX_TOKENS: 512
+  
+  # Nhiệt độ (Độ sáng tạo)
+  # Với task sửa lỗi chính tả (cần chính xác tuyệt đối), nên để cực thấp.
+  # 0.1 giúp model ổn định nhưng không bị cứng quá mức.
+  TEMPERATURE: 0.1
+  
+  # Top-P (Nucleus Sampling)
+  # Giữ ở mức chuẩn, kết hợp với Temp thấp để lọc từ rác.
+  TOP_P: 0.95
+  
+  # Số lượng câu xử lý cùng lúc
+  # Với model 3B-4bit, GPU 16GB có thể chạy Batch 16-32 thoải mái.
+  # GPU 8GB (Colab T4) thì để 8 là an toàn nhất.
+  BATCH_SIZE: 8
