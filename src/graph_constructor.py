@@ -61,8 +61,7 @@ class GraphConstructor:
         ).eval()
 
         # --- Load Model NER ---
-        print(">> NER Model: Underthesea (Ready)") 
-
+        print(">> NER Model: Underthesea") 
         self.graph = nx.DiGraph()
         self.config = gc_config
 
@@ -71,10 +70,6 @@ class GraphConstructor:
     # =======================================
     # --- Extract Entities ---
     def _extract_entities(self, text: str) -> List[str]:
-        """
-        BƯỚC 1: NER với thuật toán 'Nối Danh Từ' (Chunking)
-        Khắc phục lỗi tách từ rời rạc của Underthesea.
-        """
         try:
             raw_ner = ner(text)
         except Exception as e:
@@ -223,7 +218,7 @@ def example():
 
     # --- Result Check ---
     print("\n" + "="*50)
-    print(f"📊 KẾT QUẢ PROPERTY GRAPH ({kg.number_of_nodes()} Nodes, {kg.number_of_edges()} Edges)")
+    print(f"KẾT QUẢ PROPERTY GRAPH ({kg.number_of_nodes()} Nodes, {kg.number_of_edges()} Edges)")
     print("="*50)
     
     for u, v, data in kg.edges(data=True):
@@ -253,7 +248,7 @@ def example():
         edge_labels = nx.get_edge_attributes(kg, 'relation')
         nx.draw_networkx_edge_labels(kg, pos, edge_labels=edge_labels, font_size=9, font_color='red')
         
-        plt.title("Knowledge Graph Demo")
+        plt.title("Knowledge Graph")
         plt.axis('off')
         plt.show()
     else:
