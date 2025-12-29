@@ -1,8 +1,0 @@
-GraphConstructor:
-  # Model 3B 4-bit chạy mượt trên RTX 3050 6GB
-  RE_MODEL_NAME: "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit"
-  
-  # Các tham số sinh văn bản
-  TEMPERATURE: 0.05
-  MAX_NEW_TOKENS: 256
-  BATCH_SIZE: 2
